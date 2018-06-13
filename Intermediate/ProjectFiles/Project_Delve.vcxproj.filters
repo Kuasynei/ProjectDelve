@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\Project_Delve.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{1F3824E6-0E6D-48E1-8542-781A238CBBF3}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Project_Delve.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\Project_DelveEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{F00E9A29-2E1D-4484-A3E1-DA01C6190F25}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\Project_Delve">
+			<UniqueIdentifier>{472F54B6-2CB6-4C41-832B-0BFDB025255F}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Project_Delve\Project_Delve.Build.cs">
+			<Filter>Source\Project_Delve</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\Project_Delve\Project_Delve.cpp">
+			<Filter>Source\Project_Delve</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Delve\Project_Delve.h">
+			<Filter>Source\Project_Delve</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Project_Delve\Project_DelveCharacter.cpp">
+			<Filter>Source\Project_Delve</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Delve\Project_DelveCharacter.h">
+			<Filter>Source\Project_Delve</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Project_Delve\Project_DelveGameMode.cpp">
+			<Filter>Source\Project_Delve</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Delve\Project_DelveGameMode.h">
+			<Filter>Source\Project_Delve</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Project_Delve\Project_DelvePlayerController.cpp">
+			<Filter>Source\Project_Delve</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Project_Delve\Project_DelvePlayerController.h">
+			<Filter>Source\Project_Delve</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
