@@ -59,11 +59,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AProject_DelveCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AProject_DelveCharacter)
 
 
-#define Project_Delve_Source_Project_Delve_Project_DelveCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__TopDownCameraComponent() { return STRUCT_OFFSET(AProject_DelveCharacter, TopDownCameraComponent); } \
-	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AProject_DelveCharacter, CameraBoom); }
-
-
+#define Project_Delve_Source_Project_Delve_Project_DelveCharacter_h_12_PRIVATE_PROPERTY_OFFSET
 #define Project_Delve_Source_Project_Delve_Project_DelveCharacter_h_9_PROLOG
 #define Project_Delve_Source_Project_Delve_Project_DelveCharacter_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

@@ -4,6 +4,7 @@
 #include "Project_DelvePlayerController.h"
 #include "Project_DelveCharacter.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Engine/World.h"
 
 AProject_DelveGameMode::AProject_DelveGameMode()
 {
@@ -16,4 +17,9 @@ AProject_DelveGameMode::AProject_DelveGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+}
+
+void AProject_DelveGameMode::BeginPlay()
+{
+	GetWorld()->GetFirstPlayerController()->SetViewTarget(GetOwner());
 }

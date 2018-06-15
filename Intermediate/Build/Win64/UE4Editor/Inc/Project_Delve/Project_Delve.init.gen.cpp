@@ -19,8 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeProject_Delve_init() {}
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/Project_Delve",
 				PKG_CompiledIn | 0x00000000,
-				0xA868C65A,
-				0xDE4B60A3,
+				0x3C57AC3A,
+				0x8CF41E02,
 				nullptr, 0,
 				METADATA_PARAMS(nullptr, 0)
 			};

@@ -3,7 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Project_DelveCharacter.h"
+#include "Camera/CameraComponent.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Project_DelvePlayerController.generated.h"
 
 UCLASS()
@@ -12,21 +15,28 @@ class AProject_DelvePlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
+
 	AProject_DelvePlayerController();
+
+	//Creating a main camera.
+	//Should camera require additional functionality, create a new class.
+	USpringArmComponent* cameraBoom;
+	UCameraComponent* mainCamera;
 
 protected:
 
-	ACharacter* character;
+	AProject_DelveCharacter* player;
 
 	// Begin PlayerController interface
+	virtual void BeginPlay() override;
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
 
 	UFUNCTION()
-	void YAxisStick(float val);
+	void YInput(float val);
 
 	UFUNCTION()
-	void XAxisStick(float val);
+	void XInput(float val);
 };
 
 

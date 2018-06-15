@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/GameModeBase.h"
 #include "Project_DelveGameMode.generated.h"
 
@@ -13,6 +14,7 @@ class AProject_DelveGameMode : public AGameModeBase
 
 public:
 	AProject_DelveGameMode();
+	virtual void BeginPlay() override;
 };
 
 

@@ -17,28 +17,28 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelvePlayerController() {}
 	PROJECT_DELVE_API UClass* Z_Construct_UClass_AProject_DelvePlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_Project_Delve();
-	PROJECT_DELVE_API UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_XAxisStick();
-	PROJECT_DELVE_API UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_YAxisStick();
+	PROJECT_DELVE_API UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_XInput();
+	PROJECT_DELVE_API UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_YInput();
 // End Cross Module References
 	void AProject_DelvePlayerController::StaticRegisterNativesAProject_DelvePlayerController()
 	{
 		UClass* Class = AProject_DelvePlayerController::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "XAxisStick", &AProject_DelvePlayerController::execXAxisStick },
-			{ "YAxisStick", &AProject_DelvePlayerController::execYAxisStick },
+			{ "XInput", &AProject_DelvePlayerController::execXInput },
+			{ "YInput", &AProject_DelvePlayerController::execYInput },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
 	}
-	UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_XAxisStick()
+	UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_XInput()
 	{
-		struct Project_DelvePlayerController_eventXAxisStick_Parms
+		struct Project_DelvePlayerController_eventXInput_Parms
 		{
 			float val;
 		};
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_val = { UE4CodeGen_Private::EPropertyClass::Float, "val", RF_Public|RF_Transient|RF_MarkAsNative, 0x0010000000000080, 1, nullptr, STRUCT_OFFSET(Project_DelvePlayerController_eventXAxisStick_Parms, val), METADATA_PARAMS(nullptr, 0) };
+			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_val = { UE4CodeGen_Private::EPropertyClass::Float, "val", RF_Public|RF_Transient|RF_MarkAsNative, 0x0010000000000080, 1, nullptr, STRUCT_OFFSET(Project_DelvePlayerController_eventXInput_Parms, val), METADATA_PARAMS(nullptr, 0) };
 			static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[] = {
 				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_val,
 			};
@@ -47,21 +47,21 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelvePlayerController() {}
 				{ "ModuleRelativePath", "Project_DelvePlayerController.h" },
 			};
 #endif
-			static const UE4CodeGen_Private::FFunctionParams FuncParams = { (UObject*(*)())Z_Construct_UClass_AProject_DelvePlayerController, "XAxisStick", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x00080401, sizeof(Project_DelvePlayerController_eventXAxisStick_Parms), PropPointers, ARRAY_COUNT(PropPointers), 0, 0, METADATA_PARAMS(Function_MetaDataParams, ARRAY_COUNT(Function_MetaDataParams)) };
+			static const UE4CodeGen_Private::FFunctionParams FuncParams = { (UObject*(*)())Z_Construct_UClass_AProject_DelvePlayerController, "XInput", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x00080401, sizeof(Project_DelvePlayerController_eventXInput_Parms), PropPointers, ARRAY_COUNT(PropPointers), 0, 0, METADATA_PARAMS(Function_MetaDataParams, ARRAY_COUNT(Function_MetaDataParams)) };
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, FuncParams);
 		}
 		return ReturnFunction;
 	}
-	UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_YAxisStick()
+	UFunction* Z_Construct_UFunction_AProject_DelvePlayerController_YInput()
 	{
-		struct Project_DelvePlayerController_eventYAxisStick_Parms
+		struct Project_DelvePlayerController_eventYInput_Parms
 		{
 			float val;
 		};
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_val = { UE4CodeGen_Private::EPropertyClass::Float, "val", RF_Public|RF_Transient|RF_MarkAsNative, 0x0010000000000080, 1, nullptr, STRUCT_OFFSET(Project_DelvePlayerController_eventYAxisStick_Parms, val), METADATA_PARAMS(nullptr, 0) };
+			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_val = { UE4CodeGen_Private::EPropertyClass::Float, "val", RF_Public|RF_Transient|RF_MarkAsNative, 0x0010000000000080, 1, nullptr, STRUCT_OFFSET(Project_DelvePlayerController_eventYInput_Parms, val), METADATA_PARAMS(nullptr, 0) };
 			static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[] = {
 				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_val,
 			};
@@ -70,7 +70,7 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelvePlayerController() {}
 				{ "ModuleRelativePath", "Project_DelvePlayerController.h" },
 			};
 #endif
-			static const UE4CodeGen_Private::FFunctionParams FuncParams = { (UObject*(*)())Z_Construct_UClass_AProject_DelvePlayerController, "YAxisStick", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x00080401, sizeof(Project_DelvePlayerController_eventYAxisStick_Parms), PropPointers, ARRAY_COUNT(PropPointers), 0, 0, METADATA_PARAMS(Function_MetaDataParams, ARRAY_COUNT(Function_MetaDataParams)) };
+			static const UE4CodeGen_Private::FFunctionParams FuncParams = { (UObject*(*)())Z_Construct_UClass_AProject_DelvePlayerController, "YInput", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x00080401, sizeof(Project_DelvePlayerController_eventYInput_Parms), PropPointers, ARRAY_COUNT(PropPointers), 0, 0, METADATA_PARAMS(Function_MetaDataParams, ARRAY_COUNT(Function_MetaDataParams)) };
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, FuncParams);
 		}
 		return ReturnFunction;
@@ -89,8 +89,8 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelvePlayerController() {}
 				(UObject* (*)())Z_Construct_UPackage__Script_Project_Delve,
 			};
 			static const FClassFunctionLinkInfo FuncInfo[] = {
-				{ &Z_Construct_UFunction_AProject_DelvePlayerController_XAxisStick, "XAxisStick" }, // 3930524085
-				{ &Z_Construct_UFunction_AProject_DelvePlayerController_YAxisStick, "YAxisStick" }, // 3030781557
+				{ &Z_Construct_UFunction_AProject_DelvePlayerController_XInput, "XInput" }, // 3606656133
+				{ &Z_Construct_UFunction_AProject_DelvePlayerController_YInput, "YInput" }, // 1045607118
 			};
 #if WITH_METADATA
 			static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
@@ -117,7 +117,7 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelvePlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProject_DelvePlayerController, 2563856666);
+	IMPLEMENT_CLASS(AProject_DelvePlayerController, 556521618);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AProject_DelvePlayerController(Z_Construct_UClass_AProject_DelvePlayerController, &AProject_DelvePlayerController::StaticClass, TEXT("/Script/Project_Delve"), TEXT("AProject_DelvePlayerController"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AProject_DelvePlayerController);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

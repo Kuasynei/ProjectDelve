@@ -2,13 +2,12 @@
 
 #include "Project_DelveCharacter.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
-#include "GameFramework/SpringArmComponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
+#include "Engine.h"
 
 AProject_DelveCharacter::AProject_DelveCharacter()
 {
@@ -26,25 +25,42 @@ AProject_DelveCharacter::AProject_DelveCharacter()
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
 
-	// Create a camera boom...
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->bAbsoluteRotation = true; // Don't want arm to rotate when character does
-	CameraBoom->TargetArmLength = 10000.f;
-	CameraBoom->RelativeRotation = FRotator(-30.f, -135.f, 0.f);
-	CameraBoom->bDoCollisionTest = false; // Don't want to pull camera in when it collides with level
+}
 
-	// Create a camera...
-	TopDownCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
-	TopDownCameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
-	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-	TopDownCameraComponent->SetFieldOfView(10);
-
+void AProject_DelveCharacter::BeginPlay()
+{
+	
 }
 
 void AProject_DelveCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+}
 
-	
+void AProject_DelveCharacter::YMovement(float val)
+{
+	// find out which way is forward
+	FRotator Rotation = GetControlRotation();
+
+	// Limit pitch when walking or falling
+	if (GetCharacterMovement()->IsMovingOnGround() || GetCharacterMovement()->IsFalling())
+	{
+		Rotation.Pitch = 0.0f;
+	}
+
+	// add movement in that direction
+	const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
+	AddMovementInput(Direction, val);
+}
+
+void AProject_DelveCharacter::XMovement(float val)
+{
+	if (val != 0.0f)
+	{
+		// find out which way is right
+		const FRotator Rotation = GetControlRotation();
+		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
+		// add movement in that direction
+		AddMovementInput(Direction, val);
+	}
 }

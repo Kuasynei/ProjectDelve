@@ -2,16 +2,40 @@
 
 #include "Project_DelvePlayerController.h"
 #include "AI/Navigation/NavigationSystem.h"
-#include "DrawDebugHelpers.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 #include "Project_DelveCharacter.h"
+#include "Project_DelveGameMode.h"
+#include "DrawDebugHelpers.h"
 #include "Engine/World.h"
+#include "Engine.h"
 
 AProject_DelvePlayerController::AProject_DelvePlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Crosshairs;
+
+	// Creating a camera boom.
+	cameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	cameraBoom->SetupAttachment(RootComponent);
+	cameraBoom->bAbsoluteRotation = true;
+	cameraBoom->TargetArmLength = 3000.f;
+	cameraBoom->RelativeRotation = FRotator(-30.f, -135.f, 0.f);
+	cameraBoom->bDoCollisionTest = false;
+
+	// Create a camera.
+	mainCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("MainCamera"));
+	mainCamera->SetupAttachment(cameraBoom, USpringArmComponent::SocketName);
+	mainCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+	mainCamera->SetFieldOfView(30);
+}
+
+void AProject_DelvePlayerController::BeginPlay()
+{
+	player = Cast<AProject_DelveCharacter>(GetCharacter());
+	SetViewTarget((AProject_DelveGameMode*)GetWorld()->GetAuthGameMode()->GetOwner());
+	
 }
 
 void AProject_DelvePlayerController::PlayerTick(float DeltaTime)
@@ -24,46 +48,17 @@ void AProject_DelvePlayerController::SetupInputComponent()
 	// Set up gameplay key bindings
 	Super::SetupInputComponent();
 
-	InputComponent->BindAxis("YAxisStick", this, &AProject_DelvePlayerController::YAxisStick);
-	InputComponent->BindAxis("XAxisStick", this, &AProject_DelvePlayerController::XAxisStick);
+	InputComponent->BindAxis("YInput", this, &AProject_DelvePlayerController::YInput);
+	InputComponent->BindAxis("XInput", this, &AProject_DelvePlayerController::XInput);
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 3, FColor::Yellow, TEXT("Input setup successful."));
 }
 
-void AProject_DelvePlayerController::YAxisStick(float val) {
-	if (character != NULL && val != 0.0f)
-	{
-		// find out which way is forward
-		FRotator Rotation = GetControlRotation();
-
-		// Limit pitch when walking or falling
-		if (character->GetCharacterMovement()->IsMovingOnGround() || character->GetCharacterMovement()->IsFalling())
-		{
-			Rotation.Pitch = 0.0f;
-		}
-
-		// add movement in that direction
-		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
-		character->AddMovementInput(Direction, val);
-
-		DrawDebugLine(
-			GetWorld(),
-			character->GetTransform().GetTranslation(),
-			Direction * val,
-			FColor(255, 0, 0),
-			false, -1, 0,
-			15
-		);
-	}
+void AProject_DelvePlayerController::YInput(float val) {
+	player->YMovement(val);
 }
 
-void AProject_DelvePlayerController::XAxisStick(float val)
+void AProject_DelvePlayerController::XInput(float val)
 {
-	if ((character != NULL) && (val != 0.0f))
-	{
-		// find out which way is right
-		const FRotator Rotation = GetControlRotation();
-		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
-		// add movement in that direction
-		character->AddMovementInput(Direction, val);
-	}
+	player->XMovement(val);
 }
 
