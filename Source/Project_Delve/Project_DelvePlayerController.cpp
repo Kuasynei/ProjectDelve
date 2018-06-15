@@ -2,7 +2,8 @@
 
 #include "Project_DelvePlayerController.h"
 #include "AI/Navigation/NavigationSystem.h"
-#include "Runtime/Engine/Classes/Components/DecalComponent.h"
+#include "DrawDebugHelpers.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Project_DelveCharacter.h"
 #include "Engine/World.h"
@@ -16,98 +17,53 @@ AProject_DelvePlayerController::AProject_DelvePlayerController()
 void AProject_DelvePlayerController::PlayerTick(float DeltaTime)
 {
 	Super::PlayerTick(DeltaTime);
-
-	// keep updating the destination every tick while desired
-	if (bMoveToMouseCursor)
-	{
-		MoveToMouseCursor();
-	}
 }
 
 void AProject_DelvePlayerController::SetupInputComponent()
 {
-	// set up gameplay key bindings
+	// Set up gameplay key bindings
 	Super::SetupInputComponent();
 
-	InputComponent->BindAction("SetDestination", IE_Pressed, this, &AProject_DelvePlayerController::OnSetDestinationPressed);
-	InputComponent->BindAction("SetDestination", IE_Released, this, &AProject_DelvePlayerController::OnSetDestinationReleased);
-
-	// support touch devices 
-	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AProject_DelvePlayerController::MoveToTouchLocation);
-	InputComponent->BindTouch(EInputEvent::IE_Repeat, this, &AProject_DelvePlayerController::MoveToTouchLocation);
-
-	InputComponent->BindAction("ResetVR", IE_Pressed, this, &AProject_DelvePlayerController::OnResetVR);
+	InputComponent->BindAxis("YAxisStick", this, &AProject_DelvePlayerController::YAxisStick);
+	InputComponent->BindAxis("XAxisStick", this, &AProject_DelvePlayerController::XAxisStick);
 }
 
-void AProject_DelvePlayerController::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void AProject_DelvePlayerController::MoveToMouseCursor()
-{
-	if (UHeadMountedDisplayFunctionLibrary::IsHeadMountedDisplayEnabled())
+void AProject_DelvePlayerController::YAxisStick(float val) {
+	if (character != NULL && val != 0.0f)
 	{
-		if (AProject_DelveCharacter* MyPawn = Cast<AProject_DelveCharacter>(GetPawn()))
+		// find out which way is forward
+		FRotator Rotation = GetControlRotation();
+
+		// Limit pitch when walking or falling
+		if (character->GetCharacterMovement()->IsMovingOnGround() || character->GetCharacterMovement()->IsFalling())
 		{
-			if (MyPawn->GetCursorToWorld())
-			{
-				UNavigationSystem::SimpleMoveToLocation(this, MyPawn->GetCursorToWorld()->GetComponentLocation());
-			}
+			Rotation.Pitch = 0.0f;
 		}
+
+		// add movement in that direction
+		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
+		character->AddMovementInput(Direction, val);
+
+		DrawDebugLine(
+			GetWorld(),
+			character->GetTransform().GetTranslation(),
+			Direction * val,
+			FColor(255, 0, 0),
+			false, -1, 0,
+			15
+		);
 	}
-	else
+}
+
+void AProject_DelvePlayerController::XAxisStick(float val)
+{
+	if ((character != NULL) && (val != 0.0f))
 	{
-		// Trace to see what is under the mouse cursor
-		FHitResult Hit;
-		GetHitResultUnderCursor(ECC_Visibility, false, Hit);
-
-		if (Hit.bBlockingHit)
-		{
-			// We hit something, move there
-			SetNewMoveDestination(Hit.ImpactPoint);
-		}
+		// find out which way is right
+		const FRotator Rotation = GetControlRotation();
+		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
+		// add movement in that direction
+		character->AddMovementInput(Direction, val);
 	}
 }
 
-void AProject_DelvePlayerController::MoveToTouchLocation(const ETouchIndex::Type FingerIndex, const FVector Location)
-{
-	FVector2D ScreenSpaceLocation(Location);
-
-	// Trace to see what is under the touch location
-	FHitResult HitResult;
-	GetHitResultAtScreenPosition(ScreenSpaceLocation, CurrentClickTraceChannel, true, HitResult);
-	if (HitResult.bBlockingHit)
-	{
-		// We hit something, move there
-		SetNewMoveDestination(HitResult.ImpactPoint);
-	}
-}
-
-void AProject_DelvePlayerController::SetNewMoveDestination(const FVector DestLocation)
-{
-	APawn* const MyPawn = GetPawn();
-	if (MyPawn)
-	{
-		UNavigationSystem* const NavSys = GetWorld()->GetNavigationSystem();
-		float const Distance = FVector::Dist(DestLocation, MyPawn->GetActorLocation());
-
-		// We need to issue move command only if far enough in order for walk animation to play correctly
-		if (NavSys && (Distance > 120.0f))
-		{
-			NavSys->SimpleMoveToLocation(this, DestLocation);
-		}
-	}
-}
-
-void AProject_DelvePlayerController::OnSetDestinationPressed()
-{
-	// set flag to keep updating destination until released
-	bMoveToMouseCursor = true;
-}
-
-void AProject_DelvePlayerController::OnSetDestinationReleased()
-{
-	// clear flag to indicate we should stop updating the destination
-	bMoveToMouseCursor = false;
-}

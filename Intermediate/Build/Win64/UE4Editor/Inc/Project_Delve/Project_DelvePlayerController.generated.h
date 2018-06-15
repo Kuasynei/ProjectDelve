@@ -13,8 +13,48 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PROJECT_DELVE_Project_DelvePlayerController_generated_h
 
-#define Project_Delve_Source_Project_Delve_Project_DelvePlayerController_h_12_RPC_WRAPPERS
-#define Project_Delve_Source_Project_Delve_Project_DelvePlayerController_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define Project_Delve_Source_Project_Delve_Project_DelvePlayerController_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execXAxisStick) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_val); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->XAxisStick(Z_Param_val); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execYAxisStick) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_val); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->YAxisStick(Z_Param_val); \
+		P_NATIVE_END; \
+	}
+
+
+#define Project_Delve_Source_Project_Delve_Project_DelvePlayerController_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execXAxisStick) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_val); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->XAxisStick(Z_Param_val); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execYAxisStick) \
+	{ \
+		P_GET_PROPERTY(UFloatProperty,Z_Param_val); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->YAxisStick(Z_Param_val); \
+		P_NATIVE_END; \
+	}
+
+
 #define Project_Delve_Source_Project_Delve_Project_DelvePlayerController_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAProject_DelvePlayerController(); \

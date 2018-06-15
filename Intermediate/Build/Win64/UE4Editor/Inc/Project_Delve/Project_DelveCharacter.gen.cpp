@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelveCharacter() {}
 	PROJECT_DELVE_API UClass* Z_Construct_UClass_AProject_DelveCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_Project_Delve();
-	ENGINE_API UClass* Z_Construct_UClass_UDecalComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
@@ -47,16 +46,6 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelveCharacter() {}
 			};
 #endif
 #if WITH_METADATA
-			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CursorToWorld_MetaData[] = {
-				{ "AllowPrivateAccess", "true" },
-				{ "Category", "Camera" },
-				{ "EditInline", "true" },
-				{ "ModuleRelativePath", "Project_DelveCharacter.h" },
-				{ "ToolTip", "A decal that projects to the cursor location." },
-			};
-#endif
-			static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CursorToWorld = { UE4CodeGen_Private::EPropertyClass::Object, "CursorToWorld", RF_Public|RF_Transient|RF_MarkAsNative, 0x00400000000a001d, 1, nullptr, STRUCT_OFFSET(AProject_DelveCharacter, CursorToWorld), Z_Construct_UClass_UDecalComponent_NoRegister, METADATA_PARAMS(NewProp_CursorToWorld_MetaData, ARRAY_COUNT(NewProp_CursorToWorld_MetaData)) };
-#if WITH_METADATA
 			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CameraBoom_MetaData[] = {
 				{ "AllowPrivateAccess", "true" },
 				{ "Category", "Camera" },
@@ -77,7 +66,6 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelveCharacter() {}
 #endif
 			static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TopDownCameraComponent = { UE4CodeGen_Private::EPropertyClass::Object, "TopDownCameraComponent", RF_Public|RF_Transient|RF_MarkAsNative, 0x00400000000a001d, 1, nullptr, STRUCT_OFFSET(AProject_DelveCharacter, TopDownCameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(NewProp_TopDownCameraComponent_MetaData, ARRAY_COUNT(NewProp_TopDownCameraComponent_MetaData)) };
 			static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[] = {
-				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_CursorToWorld,
 				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_CameraBoom,
 				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_TopDownCameraComponent,
 			};
@@ -99,7 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeProject_DelveCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProject_DelveCharacter, 1037036681);
+	IMPLEMENT_CLASS(AProject_DelveCharacter, 3343323834);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AProject_DelveCharacter(Z_Construct_UClass_AProject_DelveCharacter, &AProject_DelveCharacter::StaticClass, TEXT("/Script/Project_Delve"), TEXT("AProject_DelveCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AProject_DelveCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
