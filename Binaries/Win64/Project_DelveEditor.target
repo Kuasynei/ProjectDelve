@@ -5983,7 +5983,7 @@
 	],
 	"RuntimeDependencies": [
 		{
-			"Path": "$(ProjectDir)/Project_Delve.uproject",
+			"Path": "$(ProjectDir)/ProjectDelve.uproject",
 			"Type": "UFS"
 		},
 		{

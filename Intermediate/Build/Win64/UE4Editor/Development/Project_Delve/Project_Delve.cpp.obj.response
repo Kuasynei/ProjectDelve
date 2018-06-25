@@ -24,9 +24,9 @@
 /wd4838
 /w44668
 /I "E:\Program Files\Epic Games\UE_4.19\Engine\Source"
-/I "E:\Users\Doan\Documents\Source Control\Project_Delve\Source"
-/I "E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\Inc\Project_Delve"
-/I "E:\Users\Doan\Documents\Source Control\Project_Delve\Source\Project_Delve"
+/I "E:\Users\Doan\Documents\Source Control\ProjectDelve\Source"
+/I "E:\Users\Doan\Documents\Source Control\ProjectDelve\Intermediate\Build\Win64\UE4Editor\Inc\Project_Delve"
+/I "E:\Users\Doan\Documents\Source Control\ProjectDelve\Source\Project_Delve"
 /I "E:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public"
 /I "E:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public\Internationalization"
 /I "E:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public\Async"
@@ -364,9 +364,9 @@
 /FI"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Yu"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Fp"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"E:\Users\Doan\Documents\Source Control\Project_Delve\Source\Project_Delve\Project_Delve.cpp"
-/FI"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\Development\Project_Delve\Definitions.Project_Delve.h"
-/Fo"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\Development\Project_Delve\Project_Delve.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\ProjectDelve\Source\Project_Delve\Project_Delve.cpp"
+/FI"E:\Users\Doan\Documents\Source Control\ProjectDelve\Intermediate\Build\Win64\UE4Editor\Development\Project_Delve\Definitions.Project_Delve.h"
+/Fo"E:\Users\Doan\Documents\Source Control\ProjectDelve\Intermediate\Build\Win64\UE4Editor\Development\Project_Delve\Project_Delve.cpp.obj"
 /TP
 /GR-
 /W4
