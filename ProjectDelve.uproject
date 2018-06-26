@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "Project_Delve",
+			"Name": "ProjectDelve",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
