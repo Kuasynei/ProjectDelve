@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\Project_Delve.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{1F3824E6-0E6D-48E1-8542-781A238CBBF3}</UniqueIdentifier>
+			<UniqueIdentifier>{991D3A7F-0A4C-46BC-9730-0DA7DE796B8F}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\Project_Delve.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{F00E9A29-2E1D-4484-A3E1-DA01C6190F25}</UniqueIdentifier>
+			<UniqueIdentifier>{9D962941-FEBE-4615-B447-FBFEEF318B9D}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,7 +31,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\Project_Delve">
-			<UniqueIdentifier>{472F54B6-2CB6-4C41-832B-0BFDB025255F}</UniqueIdentifier>
+			<UniqueIdentifier>{BD228ECE-9808-4C07-9E38-CA8F7057903B}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\Project_Delve\Project_Delve.Build.cs">
 			<Filter>Source\Project_Delve</Filter>

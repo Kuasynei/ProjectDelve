@@ -7,7 +7,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Materials/Material.h"
+#include "DrawDebugHelpers.h"
 #include "Engine/World.h"
 
 AProject_DelveCharacter::AProject_DelveCharacter()
@@ -47,4 +47,25 @@ void AProject_DelveCharacter::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
 
 	
+}
+
+void AProject_DelveCharacter::YAxisMovement(float val)
+{
+	if (val != 0.0f)
+	{
+		FVector cameraForward = CameraBoom->GetComponentRotation().RotateVector(FVector::ForwardVector);
+		FVector newWorldForward = FVector::VectorPlaneProject(cameraForward, FVector::UpVector);
+		AddMovementInput(newWorldForward, val);
+	}
+}
+
+
+void AProject_DelveCharacter::XAxisMovement(float val)
+{
+	if (val != 0.0f)
+	{
+		FVector cameraRight = CameraBoom->GetComponentRotation().RotateVector(FVector::RightVector);
+		FVector newWorldRight = FVector::VectorPlaneProject(cameraRight, FVector::UpVector);
+		AddMovementInput(newWorldRight, val);
+	}
 }
