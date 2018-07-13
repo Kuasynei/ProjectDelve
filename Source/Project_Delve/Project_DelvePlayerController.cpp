@@ -3,6 +3,8 @@
 #include "Project_DelvePlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 #include "Project_DelveCharacter.h"
 #include "Engine/World.h"
 
@@ -10,6 +12,7 @@ AProject_DelvePlayerController::AProject_DelvePlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Crosshairs;
+	bAutoManageActiveCameraTarget = false;
 }
 
 void AProject_DelvePlayerController::BeginPlay()
@@ -33,10 +36,12 @@ void AProject_DelvePlayerController::SetupInputComponent()
 	InputComponent->BindAxis("XAxisStick", this, &AProject_DelvePlayerController::XAxisStick);
 }
 
+//Calling movement on the character this controller is attached to.
 void AProject_DelvePlayerController::YAxisStick(float val) {
 	character->YAxisMovement(val);
 }
 
+//Calling movement on the character this controller is attached to.
 void AProject_DelvePlayerController::XAxisStick(float val)
 {
 	character->XAxisMovement(val);

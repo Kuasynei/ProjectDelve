@@ -13,6 +13,13 @@ class AProject_DelveGameMode : public AGameModeBase
 
 public:
 	AProject_DelveGameMode();
+
+	virtual void BeginPlay() override;
+	virtual ACameraActor* GetMainCamera();
+
+private:
+
+	ACameraActor* mainCamera;
 };
 
 
