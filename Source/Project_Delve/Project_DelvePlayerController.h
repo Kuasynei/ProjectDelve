@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Project_DelveCharacter.h"
 #include "Project_DelvePlayerController.generated.h"
 
 UCLASS()
@@ -16,9 +19,10 @@ public:
 
 protected:
 
-	ACharacter* character;
+	AProject_DelveCharacter* character;
 
 	// Begin PlayerController interface
+	virtual void BeginPlay() override;
 	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
 

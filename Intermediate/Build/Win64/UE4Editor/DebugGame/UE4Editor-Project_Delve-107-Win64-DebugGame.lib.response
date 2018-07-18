@@ -1,0 +1,20 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Project_Delve-107-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.NonOptimized.h.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_Delve.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelveCharacter.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelveGameMode.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelvePlayerController.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_Delve.init.gen.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelveCharacter.gen.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelveGameMode.gen.cpp.obj"
+"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\Project_Delve\Project_DelvePlayerController.gen.cpp.obj"
+"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Project_Delve\PCLaunch.rc.res"
+"E:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\ModuleVersionResource.rc.inl.res"
+/OUT:"E:\Users\Doan\Documents\Source Control\Project_Delve\Intermediate\Build\Win64\UE4Editor\DebugGame\UE4Editor-Project_Delve-107-Win64-DebugGame.lib"
