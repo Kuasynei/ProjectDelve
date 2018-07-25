@@ -1,0 +1,3 @@
+E:\Users\Doan\Documents\Source Control\ProjectDelve\Source\ProjectDelve\ProjectDelve.Build.cs
+E:\Users\Doan\Documents\Source Control\ProjectDelve\Source\ProjectDelve.Target.cs
+E:\Users\Doan\Documents\Source Control\ProjectDelve\Source\ProjectDelveEditor.Target.cs
